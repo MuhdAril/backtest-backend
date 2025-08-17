@@ -1,5 +1,7 @@
-const { Pool } = require('pg');
+const postgres = require('postgres');
+require('dotenv').config();
 
+<<<<<<< HEAD
 const pool = new Pool({
   user: process.env.DB_USER,       // Supabase username
   host: process.env.DB_HOST,       // Supabase host
@@ -9,6 +11,10 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false,
   },
+=======
+const sql = postgres(process.env.DATABASE_URL, {
+  ssl: 'require' // enforce SSL
+>>>>>>> 6a0725d (Refactor models to use Supabase postgres client (CommonJS))
 });
 
-module.exports = pool;
+module.exports = sql;
