@@ -1,13 +1,13 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'postgres', // from Supabase
-  host: 'db.drqdaxxuqgajeyvcebta.supabase.co',
-  database: 'postgres', // Supabase default DB
-  password: 'SoulSparrow2395*', // your password
+  user: process.env.DB_USER,       // Supabase username
+  host: process.env.DB_HOST,       // Supabase host
+  database: process.env.DB_NAME,   // Supabase database
+  password: process.env.DB_PASS,   // Supabase password
   port: 5432,
   ssl: {
-    rejectUnauthorized: false, // Supabase requires SSL
+    rejectUnauthorized: false,
   },
 });
 
